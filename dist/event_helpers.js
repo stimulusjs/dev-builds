@@ -1,0 +1,6 @@
+export function createEvent(eventName, detail) {
+    var event = document.createEvent("CustomEvent");
+    event.initCustomEvent(eventName, true, true, detail);
+    return event;
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXZlbnRfaGVscGVycy5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uL3NyYy9ldmVudF9oZWxwZXJzLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sc0JBQXlCLFNBQWlCLEVBQUUsTUFBUztJQUN6RCxJQUFNLEtBQUssR0FBRyxRQUFRLENBQUMsV0FBVyxDQUFDLGFBQWEsQ0FBQyxDQUFBO0lBQ2pELEtBQUssQ0FBQyxlQUFlLENBQUMsU0FBUyxFQUFFLElBQUksRUFBRSxJQUFJLEVBQUUsTUFBTSxDQUFDLENBQUE7SUFDcEQsT0FBTyxLQUFLLENBQUE7QUFDZCxDQUFDIn0=
