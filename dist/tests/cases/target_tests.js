@@ -1,0 +1,62 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+import { TargetControllerTestCase } from "../target_controller_test_case";
+var TargetTests = /** @class */ (function (_super) {
+    __extends(TargetTests, _super);
+    function TargetTests() {
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.fixtureHTML = "\n    <div data-controller=\"" + _this.identifier + "\">\n      <div data-target=\"" + _this.identifier + ".alpha\" id=\"alpha1\"></div>\n      <div data-target=\"" + _this.identifier + ".alpha\" id=\"alpha2\"></div>\n      <div data-target=\"" + _this.identifier + ".beta\" id=\"beta1\">\n        <div data-target=\"" + _this.identifier + ".gamma\" id=\"gamma1\"></div>\n      </div>\n      <div data-controller=\"" + _this.identifier + "\" id=\"child\">\n        <div data-target=\"" + _this.identifier + ".delta\" id=\"delta1\"></div>\n      </div>\n      <textarea data-target=\"" + _this.identifier + ".input\" id=\"input1\"></textarea>\n    </div>\n  ";
+        return _this;
+    }
+    TargetTests.prototype["test TargetSet#find"] = function () {
+        this.assert.equal(this.controller.targets.find("alpha"), this.findElement("#alpha1"));
+    };
+    TargetTests.prototype["test TargetSet#findAll"] = function () {
+        this.assert.deepEqual(this.controller.targets.findAll("alpha"), this.findElements("#alpha1", "#alpha2"));
+    };
+    TargetTests.prototype["test TargetSet#findAll with multiple arguments"] = function () {
+        this.assert.deepEqual(this.controller.targets.findAll("alpha", "beta"), this.findElements("#alpha1", "#alpha2", "#beta1"));
+    };
+    TargetTests.prototype["test TargetSet#has"] = function () {
+        this.assert.equal(this.controller.targets.has("gamma"), true);
+        this.assert.equal(this.controller.targets.has("delta"), false);
+    };
+    TargetTests.prototype["test TargetSet#find ignores child controller targets"] = function () {
+        this.assert.equal(this.controller.targets.find("delta"), null);
+        this.findElement("#child").removeAttribute("data-controller");
+        this.assert.equal(this.controller.targets.find("delta"), this.findElement("#delta1"));
+    };
+    TargetTests.prototype["test linked target properties"] = function () {
+        this.assert.equal(this.controller.betaTarget, this.findElement("#beta1"));
+        this.assert.deepEqual(this.controller.betaTargets, this.findElements("#beta1"));
+        this.assert.equal(this.controller.hasBetaTarget, true);
+    };
+    TargetTests.prototype["test inherited linked target properties"] = function () {
+        this.assert.equal(this.controller.alphaTarget, this.findElement("#alpha1"));
+        this.assert.deepEqual(this.controller.alphaTargets, this.findElements("#alpha1", "#alpha2"));
+    };
+    TargetTests.prototype["test singular linked target property throws an error when no target is found"] = function () {
+        var _this = this;
+        this.findElement("#beta1").removeAttribute("data-target");
+        this.assert.equal(this.controller.hasBetaTarget, false);
+        this.assert.equal(this.controller.betaTargets.length, 0);
+        this.assert.throws(function () { return _this.controller.betaTarget; });
+    };
+    TargetTests.prototype["test has*Target property names are not localized"] = function () {
+        this.assert.equal(this.controller.hasInputTarget, true);
+    };
+    return TargetTests;
+}(TargetControllerTestCase));
+export default TargetTests;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoidGFyZ2V0X3Rlc3RzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL3Rlc3RzL2Nhc2VzL3RhcmdldF90ZXN0cy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7O0FBQUEsT0FBTyxFQUFFLHdCQUF3QixFQUFFLE1BQU0sZ0NBQWdDLENBQUE7QUFFekU7SUFBeUMsK0JBQXdCO0lBQWpFO1FBQUEscUVBaUVDO1FBaEVDLGlCQUFXLEdBQUcsa0NBQ1ksS0FBSSxDQUFDLFVBQVUsc0NBQ2pCLEtBQUksQ0FBQyxVQUFVLGdFQUNmLEtBQUksQ0FBQyxVQUFVLGdFQUNmLEtBQUksQ0FBQyxVQUFVLDBEQUNiLEtBQUksQ0FBQyxVQUFVLGtGQUViLEtBQUksQ0FBQyxVQUFVLHFEQUNqQixLQUFJLENBQUMsVUFBVSxtRkFFWixLQUFJLENBQUMsVUFBVSx1REFFM0MsQ0FBQTs7SUFvREgsQ0FBQztJQWxEQyw0Q0FBcUIsR0FBckI7UUFDRSxJQUFJLENBQUMsTUFBTSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLEVBQUUsSUFBSSxDQUFDLFdBQVcsQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFBO0lBQ3ZGLENBQUM7SUFFRCwrQ0FBd0IsR0FBeEI7UUFDRSxJQUFJLENBQUMsTUFBTSxDQUFDLFNBQVMsQ0FDbkIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLE9BQU8sQ0FBQyxFQUN4QyxJQUFJLENBQUMsWUFBWSxDQUFDLFNBQVMsRUFBRSxTQUFTLENBQUMsQ0FDeEMsQ0FBQTtJQUNILENBQUM7SUFFRCx1RUFBZ0QsR0FBaEQ7UUFDRSxJQUFJLENBQUMsTUFBTSxDQUFDLFNBQVMsQ0FDbkIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLE9BQU8sRUFBRSxNQUFNLENBQUMsRUFDaEQsSUFBSSxDQUFDLFlB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
