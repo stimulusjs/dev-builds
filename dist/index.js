@@ -1,0 +1,9 @@
+import "@stimulus/polyfills";
+import { Application } from "@stimulus/core";
+import { definitionsFromContext } from "@stimulus/webpack-helpers";
+import Turbolinks from "turbolinks";
+Turbolinks.start();
+var application = Application.start();
+var context = require.context("./controllers", true, /\.js$/);
+application.load(definitionsFromContext(context));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi9pbmRleC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLHFCQUFxQixDQUFBO0FBQzVCLE9BQU8sRUFBRSxXQUFXLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQTtBQUM1QyxPQUFPLEVBQUUsc0JBQXNCLEVBQUUsTUFBTSwyQkFBMkIsQ0FBQTtBQUNsRSxPQUFPLFVBQVUsTUFBTSxZQUFZLENBQUE7QUFFbkMsVUFBVSxDQUFDLEtBQUssRUFBRSxDQUFBO0FBRWxCLElBQU0sV0FBVyxHQUFHLFdBQVcsQ0FBQyxLQUFLLEVBQUUsQ0FBQTtBQUN2QyxJQUFNLE9BQU8sR0FBRyxPQUFPLENBQUMsT0FBTyxDQUFDLGVBQWUsRUFBRSxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUE7QUFDL0QsV0FBVyxDQUFDLElBQUksQ0FBQyxzQkFBc0IsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFBIn0=
