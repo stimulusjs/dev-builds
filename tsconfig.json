@@ -1,0 +1,7 @@
+{
+  "extends": "../../../config/tsconfig.web",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  }
+}
