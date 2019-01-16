@@ -1,0 +1,9 @@
+{
+  "extends": "../../../config/tsconfig.web",
+  "compilerOptions": {
+    "composite": false,
+    "allowJs": true,
+    "declaration": false,
+    "outDir": "dist"
+  }
+}
