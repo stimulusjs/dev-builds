@@ -1,0 +1,11 @@
+{
+  "extends": "../../../config/tsconfig.web",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "references": [
+    { "path": "../multimap/tsconfig.json" },
+    { "path": "../test/tsconfig.json" }
+  ]
+}
