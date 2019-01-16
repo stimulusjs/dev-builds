@@ -1,0 +1,10 @@
+{
+  "extends": "../../../config/tsconfig.web",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "references": [
+    { "path": "../mutation-observers/tsconfig.json" }
+  ]
+}

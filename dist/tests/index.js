@@ -1,0 +1,5 @@
+import "@stimulus/polyfills";
+var context = require.context("./cases", true, /\.js$/);
+var modules = context.keys().map(function (key) { return context(key).default; });
+modules.forEach(function (constructor) { return constructor.defineModule(); });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdGVzdHMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxxQkFBcUIsQ0FBQTtBQUU1QixJQUFNLE9BQU8sR0FBRyxPQUFPLENBQUMsT0FBTyxDQUFDLFNBQVMsRUFBRSxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUE7QUFDekQsSUFBTSxPQUFPLEdBQUcsT0FBTyxDQUFDLElBQUksRUFBRSxDQUFDLEdBQUcsQ0FBQyxVQUFBLEdBQUcsSUFBSSxPQUFBLE9BQU8sQ0FBQyxHQUFHLENBQUMsQ0FBQyxPQUFPLEVBQXBCLENBQW9CLENBQUMsQ0FBQTtBQUMvRCxPQUFPLENBQUMsT0FBTyxDQUFDLFVBQUEsV0FBVyxJQUFJLE9BQUEsV0FBVyxDQUFDLFlBQVksRUFBRSxFQUExQixDQUEwQixDQUFDLENBQUEifQ==
