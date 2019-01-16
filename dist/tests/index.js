@@ -1,0 +1,5 @@
+"use strict";
+var context = require.context("./cases", true, /\.js$/);
+var modules = context.keys().map(function (key) { return context(key).default; });
+modules.forEach(function (constructor) { return constructor.defineModule(); });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi9zcmMvdGVzdHMvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLElBQU0sT0FBTyxHQUFHLE9BQU8sQ0FBQyxPQUFPLENBQUMsU0FBUyxFQUFFLElBQUksRUFBRSxPQUFPLENBQUMsQ0FBQTtBQUN6RCxJQUFNLE9BQU8sR0FBRyxPQUFPLENBQUMsSUFBSSxFQUFFLENBQUMsR0FBRyxDQUFDLFVBQUEsR0FBRyxJQUFJLE9BQUEsT0FBTyxDQUFDLEdBQUcsQ0FBQyxDQUFDLE9BQU8sRUFBcEIsQ0FBb0IsQ0FBQyxDQUFBO0FBQy9ELE9BQU8sQ0FBQyxPQUFPLENBQUMsVUFBQSxXQUFXLElBQUksT0FBQSxXQUFXLENBQUMsWUFBWSxFQUFFLEVBQTFCLENBQTBCLENBQUMsQ0FBQSJ9
